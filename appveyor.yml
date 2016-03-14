@@ -24,4 +24,4 @@ install:
 build_script:
   - cd .\mruby-%mruby_version%
   - set MRUBY_CONFIG=..\my_build_config.rb
-  - ruby .\minirake test
+  - ruby .\minirake
