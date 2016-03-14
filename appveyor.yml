@@ -1,0 +1,26 @@
+environment:
+  # Visual Studio 2010
+  visualcpp: C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat
+
+  matrix:
+    - mruby_version: 1.0.0
+
+    - mruby_version: 1.1.0
+
+    - mruby_version: 1.2.0
+
+init:
+  - call "%visualcpp%" x86
+  # for using bison.exe
+  - set PATH=%PATH%;C:\cygwin\bin;
+
+
+install:
+  - appveyor DownloadFile https://github.com/mruby/mruby/archive/%mruby_version%.zip
+  - 7z x %mruby_version%.zip > null
+
+
+build_script:
+  - cd .\%mruby_version%
+  - set MRUBY_CONFIG=..\my_build_config.rb
+  - ruby .\minirake test
