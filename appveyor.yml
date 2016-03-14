@@ -17,7 +17,7 @@ init:
 
 install:
   - appveyor DownloadFile https://github.com/mruby/mruby/archive/%mruby_version%.zip
-  - 7z x %mruby_version%.zip > nul
+  - 7z x %mruby_version%.zip
 
 
 build_script:
