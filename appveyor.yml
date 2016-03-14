@@ -17,11 +17,11 @@ init:
 
 install:
   - appveyor DownloadFile https://github.com/mruby/mruby/archive/%mruby_version%.zip
-  - 7z x %mruby_version%.zip
+  - 7z x %mruby_version%.zip > nul
   - dir
 
 
 build_script:
-  - cd .\%mruby_version%
+  - cd .\mruby-%mruby_version%
   - set MRUBY_CONFIG=..\my_build_config.rb
   - ruby .\minirake test
